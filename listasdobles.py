@@ -10,13 +10,13 @@ class ColaPaquetes:
         self.head = None
         self.tail = None
         self.actual = None
-        self.contador = 1  # IDs automáticos
+        self.contador = 1  
 
     def agregar_paquete(self, datos):
         nuevo = Paquete(self.contador, datos)
         self.contador += 1
 
-        if not self.head:  # lista vacía
+        if not self.head:  
             self.head = self.tail = self.actual = nuevo
         else:
             self.tail.next = nuevo
@@ -65,7 +65,7 @@ class ColaPaquetes:
 
     def mostrar_paquetes(self):
         if not self.head:
-            print("📭 No hay paquetes en la cola.")
+            print(" No hay paquetes en la cola.")
             return
         actual = self.head
         print(" Cola de Paquetes:")
@@ -74,7 +74,6 @@ class ColaPaquetes:
             print(f"   ID={actual.id}, Datos='{actual.datos}'{marcador}")
             actual = actual.next
 
-    # 🔹 NUEVA FUNCIÓN 1: Buscar paquete por ID
     def buscar_paquete(self, id_buscar):
         actual = self.head
         while actual:
@@ -84,7 +83,6 @@ class ColaPaquetes:
             actual = actual.next
         print(f" Paquete con ID={id_buscar} no encontrado.")
 
-    # 🔹 NUEVA FUNCIÓN 2: Vaciar toda la cola
     def vaciar_cola(self):
         self.head = None
         self.tail = None
